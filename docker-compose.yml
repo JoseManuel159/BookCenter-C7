@@ -9,3 +9,9 @@ services:
       MINIO_ROOT_USER: minioadmin
       MINIO_ROOT_PASSWORD: minioadmin
     command: server /data --console-address ":9001"
+
+  sonarqube:
+    image: sonarqube:community
+    container_name: sonarqube-server
+    ports:
+      - "9005:9000" # Usamos el 9005 para no chocar con el API de MinIO
