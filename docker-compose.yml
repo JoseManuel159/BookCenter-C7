@@ -1,0 +1,11 @@
+services:
+  minio:
+    image: minio/minio
+    container_name: minio-server
+    ports:
+      - "9000:9000"     # Puerto para la API (lo que usará Java)
+      - "9001:9001"     # Puerto para la Consola (lo que verás en el navegador)
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    command: server /data --console-address ":9001"
